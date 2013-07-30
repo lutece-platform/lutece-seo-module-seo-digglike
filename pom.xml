@@ -51,7 +51,7 @@
 
     <properties>
         <componentName>seo-digglike</componentName>
-        <jiraProjectName>SEODIGGLIKE</jiraProjectName>
+        <jiraProjectName>SEODIGG</jiraProjectName>
         <jiraComponentId>10689</jiraComponentId>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
