@@ -12,7 +12,7 @@
     <artifactId>module-seo-digglike</artifactId>
     <packaging>lutece-plugin</packaging>
     <version>1.0.2-SNAPSHOT</version>
-    <name>Lutece seo digg module</name>
+    <name>Lutece seo digglike module</name>
 
     <repositories>
         <repository>
