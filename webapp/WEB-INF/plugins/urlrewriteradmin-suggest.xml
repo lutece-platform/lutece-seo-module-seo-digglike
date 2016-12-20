@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?><plug-in>
     
     <!-- Plugin Informations -->
-    <name>seo-digglike</name>
+    <name>seo-suggest</name>
     <class>fr.paris.lutece.portal.service.plugin.PluginDefaultImplementation</class>
     <version>1.1.1-SNAPSHOT</version>
     <documentation/>
     <installation/>
     <changes/>
     <user-guide/>
-    <description>module.seo.digglike.module.description</description>
-    <provider>module.seo.digglike.module.provider</provider>
+    <description>module.seo.suggest.module.description</description>
+    <provider>module.seo.suggest.module.provider</provider>
     <provider-url>http://lutece.paris.fr</provider-url>
     <icon-url>images/admin/skin/plugins/seo/seo.png</icon-url>
     <copyright>Copyright 2001-2012 Mairie de Paris</copyright>

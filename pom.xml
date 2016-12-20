@@ -8,10 +8,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>fr.paris.lutece.plugins</groupId>
-    <artifactId>module-seo-digglike</artifactId>
+    <artifactId>module-seo-suggest</artifactId>
     <packaging>lutece-plugin</packaging>
     <version>1.1.1-SNAPSHOT</version>
-    <name>Lutece seo digglike module</name>
+    <name>Lutece seo suggest module</name>
 
     <repositories>
         <repository>
@@ -41,7 +41,7 @@
         </dependency>
         <dependency>
             <groupId>fr.paris.lutece.plugins</groupId>
-            <artifactId>plugin-digglike</artifactId>
+            <artifactId>plugin-suggest</artifactId>
             <version>[0.0.1,)</version>
             <type>lutece-plugin</type>
         </dependency>
@@ -49,16 +49,16 @@
 
 
     <properties>
-        <componentName>seo-digglike</componentName>
-        <jiraProjectName>SEODIGG</jiraProjectName>
+        <componentName>seo-suggest</componentName>
+        <jiraProjectName>SEOSUGGEST</jiraProjectName>
         <jiraComponentId>10689</jiraComponentId>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/lutece-platform/lutece-seo-module-seo-digglike.git</connection>
-        <developerConnection>scm:git:https://github.com/lutece-platform/lutece-seo-module-seo-digglike.git</developerConnection>
-        <url>https://github.com/lutece-platform/lutece-seo-module-seo-digglike.git</url>
+        <connection>scm:git:https://github.com/lutece-platform/lutece-seo-module-seo-suggest.git</connection>
+        <developerConnection>scm:git:https://github.com/lutece-platform/lutece-seo-module-seo-suggest.git</developerConnection>
+        <url>https://github.com/lutece-platform/lutece-seo-module-seo-suggest.git</url>
       <tag>HEAD</tag>
   </scm>
     

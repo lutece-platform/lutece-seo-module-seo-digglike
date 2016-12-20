@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2014, Mairie de Paris
+ * Copyright (c) 2002-2017, Mairie de Paris
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,15 +31,15 @@
  *
  * License 1.0
  */
-package fr.paris.lutece.plugins.seo.modules.digglike.service;
+package fr.paris.lutece.plugins.seo.modules.suggest.service;
 
 import java.text.MessageFormat;
 import java.util.List;
 
-import fr.paris.lutece.plugins.digglike.business.Digg;
-import fr.paris.lutece.plugins.digglike.business.DiggFilter;
-import fr.paris.lutece.plugins.digglike.business.DiggHome;
-import fr.paris.lutece.plugins.digglike.service.DigglikePlugin;
+import fr.paris.lutece.plugins.suggest.business.Suggest;
+import fr.paris.lutece.plugins.suggest.business.SuggestFilter;
+import fr.paris.lutece.plugins.suggest.business.SuggestHome;
+import fr.paris.lutece.plugins.suggest.service.SuggestPlugin;
 import fr.paris.lutece.plugins.seo.business.FriendlyUrl;
 import fr.paris.lutece.plugins.seo.service.FriendlyUrlUtils;
 import fr.paris.lutece.plugins.seo.service.SEODataKeys;
@@ -53,12 +53,12 @@ import fr.paris.lutece.portal.service.plugin.PluginService;
 /**
  * Document Alias Generator
  */
-public class DigglikeFriendlyUrlGenerator implements FriendlyUrlGenerator
+public class SuggestFriendlyUrlGenerator implements FriendlyUrlGenerator
 {
-    private static final String GENERATOR_NAME = "Digglike Friendly URL Generator";
-    private static final String TECHNICAL_URL = "/jsp/site/Portal.jsp?page=digg&amp;id_digg={0}";
+    private static final String GENERATOR_NAME = "Suggestlike Friendly URL Generator";
+    private static final String TECHNICAL_URL = "/jsp/site/Portal.jsp?page=suggest&amp;id_suggest={0}";
     private static final String SLASH = "/";
-    private static final String PATH_DIGGLIKE = "/digg/";
+    private static final String PATH_SUGGEST = "/suggest/";
     private static final String DEFAULT_CHANGE_FREQ = SitemapUtils.CHANGE_FREQ_VALUES[3];
     private static final String DEFAULT_PRIORITY = SitemapUtils.PRIORITY_VALUES[3];
     private boolean _bCanonical;
@@ -72,37 +72,37 @@ public class DigglikeFriendlyUrlGenerator implements FriendlyUrlGenerator
     @Override
     public String generate( List<FriendlyUrl> list, GeneratorOptions options )
     {
-        DiggFilter filter = new DiggFilter(  );
-        filter.setIdState( Digg.STATE_ENABLE );
+        SuggestFilter filter = new SuggestFilter(  );
+        filter.setIdState( Suggest.STATE_ENABLE );
         
-        List<Digg> listDigg = DiggHome.getDiggList( filter, PluginService.getPlugin( DigglikePlugin.PLUGIN_NAME )  );
+        List<Suggest> listSuggest = SuggestHome.getSuggestList( filter, PluginService.getPlugin( SuggestPlugin.PLUGIN_NAME )  );
      
       
         init(  );
 
-        for ( Digg  digg : listDigg )
+        for ( Suggest  suggest : listSuggest )
         {
            
             FriendlyUrl url = new FriendlyUrl(  );
 
             if ( options.isAddPath(  ) )
             {
-            	 String strPath = PATH_DIGGLIKE;
-                 url.setFriendlyUrl( strPath + FriendlyUrlUtils.convertToFriendlyUrl( digg.getTitle(  )) );
+            	 String strPath = PATH_SUGGEST;
+                 url.setFriendlyUrl( strPath + FriendlyUrlUtils.convertToFriendlyUrl( suggest.getTitle(  )) );
             }
             else
             {
             	
-                url.setFriendlyUrl( SLASH + FriendlyUrlUtils.convertToFriendlyUrl( digg.getTitle(  ) ) );
+                url.setFriendlyUrl( SLASH + FriendlyUrlUtils.convertToFriendlyUrl( suggest.getTitle(  ) ) );
             }
 
-            Object[] args = { digg.getIdDigg() };
+            Object[] args = { suggest.getIdSuggest() };
             String strTechnicalUrl = MessageFormat.format( TECHNICAL_URL, args );
             url.setTechnicalUrl( strTechnicalUrl );
             url.setCanonical( _bCanonical );
             url.setSitemap( _bSitemap );
             url.setSitemapChangeFreq( _strChangeFreq );
-            url.setSitemapLastmod( SitemapUtils.formatDate( digg.getDateCreation() ) );
+            url.setSitemapLastmod( SitemapUtils.formatDate( suggest.getDateCreation() ) );
             url.setSitemapPriority( _strPriority );
             list.add( url );
         }
